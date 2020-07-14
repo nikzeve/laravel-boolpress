@@ -44,6 +44,15 @@ class PostController extends Controller
         ]);
         $dati = $request->all();
         $slug = Str::of($dati['title'])->slug('-');
+        $slug_originale = $slug;
+        $post_trovato = Post::where('slug', $slug)->first();
+        $contatore = 0;
+        while($post_trovato) {
+            $contatore++;
+            $slug = $slug_originale . '-' . $contatore;
+            $post_trovato = Post::where('slug', $slug)->first();
+        }
+
         $dati['slug'] = $slug;
         $nuovo_post = new Post();
         $nuovo_post->fill($dati);
@@ -90,6 +99,15 @@ class PostController extends Controller
         ]);
         $dati = $request->all();
         $slug = Str::of($dati['title'])->slug('-');
+        $slug_originale = $slug;
+        $post_trovato = Post::where('slug', $slug)->first();
+        $contatore = 0;
+        while($post_trovato) {
+            $contatore++;
+            $slug = $slug_originale . '-' . $contatore;
+            $post_trovato = Post::where('slug', $slug)->first();
+        }
+
         $dati['slug'] = $slug;
         $post = Post::find($id);
         $post->update($dati);
