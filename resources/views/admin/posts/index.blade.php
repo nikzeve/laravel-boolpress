@@ -23,7 +23,7 @@
                             <tr>
                                 <td>{{$post->id}}</td>
                                 <td>{{$post->title}}</td>
-                                <td>{{$post->content}}</td>
+                                <td>{{$post->slug}}</td>
                                 <td>
                                     <a class="btn btn-small btn-info"href="{{route('admin.posts.show', ['post' => $post->id])}}">Dettaglio</a>
                                     <a class="btn btn-small btn-warning"href="{{route('admin.posts.edit', ['post' => $post->id])}}">Modifica</a>
