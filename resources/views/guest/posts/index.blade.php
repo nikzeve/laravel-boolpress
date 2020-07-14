@@ -7,7 +7,9 @@
             <h1>Lista Post</h1>
             <ul>
                 @foreach ($posts as $post)
-                    <li>{{$post->title}}</li>
+                    <li>
+                        <a href="{{route('posts.show', ['slug' => $post->slug])}}">{{$post->title}}</a>
+                    </li>
                 @endforeach
             </ul>
         </div>
