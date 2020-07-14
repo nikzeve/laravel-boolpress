@@ -16,6 +16,10 @@
                     {{ $post->content }}
                 </p>
                 <p>
+                    <strong>Categoria:</strong>
+                    {{ $post->category->name ?? '-'}}
+                </p>
+                <p>
                     <strong>Slug: </strong>
                     {{ $post->slug }}
                 </p>
